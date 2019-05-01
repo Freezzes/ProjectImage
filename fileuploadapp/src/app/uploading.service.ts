@@ -11,4 +11,8 @@ export class UploadingService {
   public uploadFormData(formData) {
     return this.http.post<any>(`${this.DJANGO_API_SERVER}/upload/`, formData);
   }
+
+  public getImage() {
+    return this.http.get(`${this.DJANGO_API_SERVER}/image/`);
+  }
 }

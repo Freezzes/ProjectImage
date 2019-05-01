@@ -10,6 +10,7 @@ import { concat } from  'rxjs';
 export class UploadPage implements OnInit {
   public fileUploader: FileUploader = new FileUploader({});
   public hasBaseDropZoneOver: boolean = false;
+  picture: any;
 
   constructor(private uploadingService: UploadingService) { }
   fileOverBase(event): void {
@@ -42,7 +43,13 @@ export class UploadPage implements OnInit {
       }
     );
   }
+  showImage(){
+    this.uploadingService.getImage().subscribe(res => {
+    this.picture = res;
+   });
+ }
   ngOnInit() {
+    this.showImage()
   }
 
 }
