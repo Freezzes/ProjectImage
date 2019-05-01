@@ -15,6 +15,7 @@ export class Tab1Page implements OnInit{
   picture: any;
   caption: string="";
   comment: any;
+  pushcomment:string='';
   constructor(private uploadingService: UploadingService) { }
 
   showImage(){
@@ -33,7 +34,7 @@ export class Tab1Page implements OnInit{
     let formData = new FormData();
 
       formData.append('imageID',id)
-      formData.append('comment_text',this.Addcomment.value)
+      formData.append('comment_text',this.pushcomment)
       
       requests.push(this.uploadingService.uploadcomment(formData));
       concat (...requests).subscribe(

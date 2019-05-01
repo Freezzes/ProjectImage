@@ -13,7 +13,7 @@
       <ion-item>
         <ion-label>
           <ion-icon name="chatbubbles"></ion-icon></ion-label>
-          <ion-input #Addcomment type="text" ></ion-input>
+          <ion-input type="text" [(ngModel)]="pushcomment"></ion-input>
         <ion-button type="submit" (click)="addcomment(item.id)">post</ion-button>
       </ion-item>
       <ion-label *ngFor="let com of comment">
