@@ -8,7 +8,7 @@ class File(models.Model):
         return self.file.name
 
 class Comment(models.Model):
-    imageID = models.ForeignKey(File, on_delete=models.CASCADE)
+    imageID = models.IntegerField(default=0)
     comment_text = models.CharField(max_length=200,default='')
     def __str__(self):
         return self.comment_text

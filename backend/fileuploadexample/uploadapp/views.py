@@ -28,13 +28,13 @@ class CommentUploadView(APIView):
     
     def post(self, request, *args, **kwargs):
       
-      file_serializer = CommentSerializer(data=request.data)
+      comment_serializer = CommentSerializer(data=request.data)
 
-      if file_serializer.is_valid():
-          file_serializer.save()
-          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+      if comment_serializer.is_valid():
+          comment_serializer.save()
+          return Response(comment_serializer.data, status=status.HTTP_201_CREATED)
       else:
-          return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+          return Response(comment_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CommentView(generics.ListAPIView):
     queryset = Comment.objects.all()
