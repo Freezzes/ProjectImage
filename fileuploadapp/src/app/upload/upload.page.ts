@@ -11,6 +11,7 @@ export class UploadPage implements OnInit {
   public fileUploader: FileUploader = new FileUploader({});
   public hasBaseDropZoneOver: boolean = false;
   picture: any;
+  caption:string="";
 
   constructor(private uploadingService: UploadingService) { }
   fileOverBase(event): void {
@@ -30,6 +31,7 @@ export class UploadPage implements OnInit {
     files.forEach((file) => {
       let formData = new FormData();
       formData.append('file' , file.rawFile, file.name);
+      formData.append('caption' , this.caption);
       requests.push(this.uploadingService.uploadFormData(formData));
 
     });
@@ -49,7 +51,7 @@ export class UploadPage implements OnInit {
    });
  }
   ngOnInit() {
-    this.showImage()
+    
   }
 
 }

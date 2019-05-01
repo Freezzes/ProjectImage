@@ -12,13 +12,15 @@
 
   <h2>Your files: {{ fileUploader?.queue?.length }}</h2>
   <ul>
-    <li *ngFor="let item of fileUploader.queue">
-=      {{ item?.file?.name }}
-      <!-- <ion-img class="imageholder" [src]="item?.image?" > -->
+      <li *ngFor="let item of fileUploader.queue">
+    {{ item?.file?.name }}
     </li>
   </ul>
-  <ion-item *ngFor="let i of picture">
-      <img class="imageholder" src="{{i.file}}">
+  <ion-item>
+      <ion-label position="floating">เขียนคำบรรยายภาพ</ion-label>
+      <ion-textarea [(ngModel)]="caption"></ion-textarea>
   </ion-item>
-
+  <li *ngFor="let item of picture; let i = index" [attr.data-index]="i">     
+      <img class="imageholder" src="{{picture[i].file}}">
+  </li>
 </ion-content>  
