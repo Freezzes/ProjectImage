@@ -15,4 +15,12 @@ export class UploadingService {
   public getImage() {
     return this.http.get(`${this.DJANGO_API_SERVER}/image/`);
   }
+
+  public uploadcomment(formData) {
+    return this.http.post<any>(`${this.DJANGO_API_SERVER}/comment/`, formData);
+  }
+  
+  public getComment() {
+    return this.http.get(`${this.DJANGO_API_SERVER}/getcomment/`);
+  }
 }

@@ -7,8 +7,17 @@
 </ion-header>
 
 <ion-content>
-    <li *ngFor="let item of picture; let i = index" [attr.data-index]="i">     
+    <ion-card  *ngFor="let item of picture; let i = index" [attr.data-index]="i">
         <img class="imageholder" src="{{picture[i].file}}">
         {{picture[i].caption}}
-    </li>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="chatbubbles"></ion-icon></ion-label>
+          <ion-input #Addcomment type="text" ></ion-input>
+        <ion-button type="submit" (click)="addcomment(item.id)">post</ion-button>
+      </ion-item>
+      <ion-label *ngFor="let com of comment">
+          <p *ngIf="com.imageID==item.id"><font size="3">{{com.comment_text}}</font></p>
+      </ion-label>
+    </ion-card>
 </ion-content>

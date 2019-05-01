@@ -45,11 +45,7 @@ export class UploadPage implements OnInit {
       }
     );
   }
-  showImage(){
-    this.uploadingService.getImage().subscribe(res => {
-    this.picture = res;
-   });
- }
+
   ngOnInit() {
     
   }
