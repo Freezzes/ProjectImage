@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Upload Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" padding>
+  <input type="file" accept="image/*" ng2FileSelect [uploader]="fileUploader" multiple />
+
+
+  <ion-button (click)="uploadFiles()">Upload files</ion-button>
+
+  <h2>Your files: {{ fileUploader?.queue?.length }}</h2>
+  <ul>
+    <li *ngFor="let item of fileUploader.queue">
+      {{ item?.file?.name }}
+    </li>
+  </ul>
+
+</ion-content>  
